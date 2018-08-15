@@ -353,7 +353,7 @@ MonoBehaviour:
   gunsIHave:
   - NewGun_semi
   - NewGun_auto
-  - Ak-46_Gun
+  - Ak47_Gun
   icons: []
   switchWeaponCooldown: 0
   menuStyle: 0

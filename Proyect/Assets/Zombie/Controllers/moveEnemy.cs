@@ -14,7 +14,7 @@ public class moveEnemy : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (Vector3.Distance(player.position, this.transform.position) < 10)
+        if (Vector3.Distance(player.position, this.transform.position) < 5)
         {
             Vector3 direccion = player.position - this.transform.position;
             direccion.y = 0;

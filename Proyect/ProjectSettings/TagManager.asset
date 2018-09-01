@@ -9,6 +9,7 @@ TagManager:
   - SecondCamera
   - Dummie
   - Weapon
+  - Fire
   layers:
   - Default
   - TransparentFX

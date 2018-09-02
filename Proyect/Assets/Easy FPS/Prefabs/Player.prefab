@@ -389,6 +389,7 @@ MonoBehaviour:
   _hitSound: {fileID: 82102465769777700}
   _walkSound: {fileID: 82248981901151284}
   _runSound: {fileID: 82378112336842120}
+  _walkingGrass: {fileID: 0}
 --- !u!114 &11478776
 MonoBehaviour:
   m_ObjectHideFlags: 1

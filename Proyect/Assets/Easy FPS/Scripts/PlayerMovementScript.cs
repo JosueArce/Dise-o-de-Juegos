@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMovementScript : MonoBehaviour {
-	Rigidbody rb;
+    Rigidbody rb;
 
 	[Tooltip("Current players speed")]
 	public float currentSpeed;

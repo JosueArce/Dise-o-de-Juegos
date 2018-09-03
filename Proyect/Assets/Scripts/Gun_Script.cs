@@ -6,14 +6,20 @@ public class Gun_Script : MonoBehaviour {
 
 	// Use this for initialization
 	public float damage = 10f;
+	public float impactForce = 30f;
+	public float fireRate = 15f;
 	public float range = 100f;
 	public Camera fpsCam;
 	public ParticleSystem muzzelFlash;
-	
-	// Update is called once per frame
-	void Update () {
+	public GameObject bloodFX;
 
-		if(Input.GetButtonDown("Fire1")){
+	private float nextTimeToFire = 0f;
+
+    // Update is called once per frame
+    void Update () {
+
+		if(Input.GetButton("Fire1") && Time.time >= nextTimeToFire){
+			nextTimeToFire = Time.time + 1f/fireRate;
 			Shoot();
 		}
 		
@@ -29,6 +35,14 @@ public class Gun_Script : MonoBehaviour {
 			if(enemy != null){
 				enemy.TakeDamage(damage);
 			}
+
+			if(hit.rigidbody != null){
+				hit.rigidbody.AddForce(-hit.normal * impactForce);
+			}
+
+			Instantiate(bloodFX, hit.point, Quaternion.LookRotation(hit.normal));
 		}
+
+			
 	}
 }

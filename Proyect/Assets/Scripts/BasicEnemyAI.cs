@@ -57,7 +57,7 @@ public class BasicEnemyAI : MonoBehaviour {
  
     public Transform target; //The target, or whatever the AI is looking for.
  
-   
+    public Animator anim;
  
    
  
@@ -340,11 +340,13 @@ public class BasicEnemyAI : MonoBehaviour {
     IEnumerator Attack() {
  
         enemyCanAttack = true;
- 
+        anim.SetBool("isIdle",false);
+		anim.SetBool("isWalking",false);
+		anim.SetBool("isAttacking",true);
        
  
         if (!enemyIsAttacking) {
- 
+            
             enemyIsAttacking = true;
  
             while (enemyCanAttack) {
@@ -582,6 +584,9 @@ public class BasicEnemyAI : MonoBehaviour {
         if (!walkInRandomDirection) {
  
             walkInRandomDirection = true;
+            anim.SetBool("isIdle",false);
+            anim.SetBool("isWalking",true);
+            anim.SetBool("isAttacking",false);
  
             if (!playerHasBeenSeen) {
  
@@ -659,7 +664,9 @@ public class BasicEnemyAI : MonoBehaviour {
            
  
         //actually move toward or away from the target
- 
+        anim.SetBool("isIdle",false);
+        anim.SetBool("isWalking",true);
+        anim.SetBool("isAttacking",false);
         direction = forward * speed * speedModifier;
  
         if ((!canFly) && (floatHeight <= 0.0f)) {

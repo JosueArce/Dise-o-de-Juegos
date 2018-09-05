@@ -32,7 +32,6 @@ public class PlayerMovementScript : MonoBehaviour {
 	*/
 	void FixedUpdate(){
 		RaycastForMeleeAttacks ();
-
 		PlayerMovementLogic ();
 	}
 	/*
@@ -57,7 +56,6 @@ public class PlayerMovementScript : MonoBehaviour {
 				ref slowdownV,
 				deaccelerationSpeed);
 		}
-
 		if (grounded) {
 			rb.AddRelativeForce (Input.GetAxis ("Horizontal") * accelerationSpeed * Time.deltaTime, 0, Input.GetAxis ("Vertical") * accelerationSpeed * Time.deltaTime);
 		} else {
@@ -80,11 +78,11 @@ public class PlayerMovementScript : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.Space) && grounded) {
 			rb.AddRelativeForce (Vector3.up * jumpForce);
 			if (_jumpSound)
-				_jumpSound.Play ();
+				_jumpSound.Play();
 			else
 				print ("Missig jump sound.");
-			_walkSound.Stop ();
-			_runSound.Stop ();
+			_walkSound.Stop();
+			_runSound.Stop();
 		}
 	}
 	/*
@@ -97,7 +95,7 @@ public class PlayerMovementScript : MonoBehaviour {
 
 		Crouching();
 
-		WalkingSound ();
+		WalkingSound();
 
 
 	}//end update
@@ -106,36 +104,58 @@ public class PlayerMovementScript : MonoBehaviour {
 	* Checks if player is grounded and plays the sound accorindlgy to his speed
 	*/
 	void WalkingSound(){
-		if (_walkSound && _runSound) {
-			if (RayCastGrounded ()) { //for walk sounsd using this because suraface is not straigh			
+		//if (_walkSound && _runSound) {
+			//if (RayCastGrounded ()) { //for walk sounsd using this because suraface is not straigh			
 				if (currentSpeed > 1) {
-					//				print ("unutra sam");
-					if (maxSpeed == 3) {
-						//	print ("tu sem");
-						if (!_walkSound.isPlaying) {
-							//	print ("playam hod");
-							_walkSound.Play ();
-							_runSound.Stop ();
-						}					
-					} else if (maxSpeed == 5) {
+					if (maxSpeed == 3){
+                        if(triggerTypeterrain.entroGrass)
+                        {
+                            if (!_walkSound.isPlaying)
+                            {
+                                _walkSound.Play();
+                                _runSound.Stop();
+                                _walkingGrass.Stop();
+                            }
+                        }
+                        else
+                        {
+                            if (!_walkingGrass.isPlaying)
+                            {
+                                print(triggerTypeterrain.entroGrass);
+                                _walkingGrass.Play();
+                                _runSound.Stop();
+                                _walkSound.Stop();
+                    }
+                        }
+               
+            } else if (maxSpeed == 5) {
 						//	print ("NE tu sem");
-
 						if (!_runSound.isPlaying) {
-							_walkSound.Stop ();
-							_runSound.Play ();
-						}
+                            //triggerTypeterrain tipo = new triggerTypeterrain();
+                            if (triggerTypeterrain.entroGrass)
+                            {
+                                _walkingGrass.Stop();
+                                _runSound.Play();
+                             }
+                            else
+                            {
+                                _walkSound.Stop();
+                                _runSound.Play();
+                            }
+                }
 					}
 				} else {
 					_walkSound.Stop ();
+                    _walkingGrass.Stop();
 					_runSound.Stop ();
 				}
-			} else {
+			/*} else {
 				_walkSound.Stop ();
 				_runSound.Stop ();
 			}
 		} else {
 			print ("Missing walk and running sounds.");
-		}
+		}*/
 
 	}
 	/*
@@ -325,8 +345,6 @@ public class PlayerMovementScript : MonoBehaviour {
 		} 
 	}
 	private GameObject myBloodEffect;
-
-
 	[Header("Player SOUNDS")]
 	[Tooltip("Jump sound when player jumps.")]
 	public AudioSource _jumpSound;
@@ -338,5 +356,7 @@ public class PlayerMovementScript : MonoBehaviour {
 	public AudioSource _walkSound;
 	[Tooltip("Run Sound player makes.")]
 	public AudioSource _runSound;
+    [Tooltip("Walk on the grass player makes.")]
+    public AudioSource _walkingGrass;
 }
 

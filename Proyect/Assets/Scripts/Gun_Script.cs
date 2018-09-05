@@ -12,6 +12,7 @@ public class Gun_Script : MonoBehaviour {
 	public Camera fpsCam;
 	public ParticleSystem muzzelFlash;
 	public GameObject bloodFX;
+	public GameObject holeFX;
 
 	private float nextTimeToFire = 0f;
 
@@ -39,8 +40,10 @@ public class Gun_Script : MonoBehaviour {
 			if(hit.rigidbody != null){
 				hit.rigidbody.AddForce(-hit.normal * impactForce);
 			}
-
-			Instantiate(bloodFX, hit.point, Quaternion.LookRotation(hit.normal));
+			if(hit.transform.tag=="Dummie")
+				Instantiate(bloodFX, hit.point, Quaternion.LookRotation(hit.normal));
+			if(hit.transform.tag=="LevelPart")
+				Instantiate(holeFX, hit.point, Quaternion.LookRotation(hit.normal));
 		}
 
 			

@@ -9,17 +9,17 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1329385430099068}
+  m_RootGameObject: {fileID: 1862902182938096}
   m_IsPrefabAsset: 1
---- !u!1 &1329385430099068
+--- !u!1 &1862902182938096
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4209918192378260}
-  - component: {fileID: 108662952568053270}
+  - component: {fileID: 4791620675592182}
+  - component: {fileID: 108483722136208120}
   m_Layer: 8
   m_Name: Directional Light
   m_TagString: Untagged
@@ -27,12 +27,12 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4209918192378260
+--- !u!4 &4791620675592182
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1329385430099068}
+  m_GameObject: {fileID: 1862902182938096}
   m_LocalRotation: {x: 0.3247999, y: 0.5515043, z: -0.70403475, w: 0.30770627}
   m_LocalPosition: {x: 1943, y: 679, z: 531}
   m_LocalScale: {x: 100, y: 100, z: 100}
@@ -40,12 +40,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 102.461, y: 146.868, z: 20.342987}
---- !u!108 &108662952568053270
+--- !u!108 &108483722136208120
 Light:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1329385430099068}
+  m_GameObject: {fileID: 1862902182938096}
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 1

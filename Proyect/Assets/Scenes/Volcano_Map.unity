@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -782,7 +782,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &360506101
 Transform:
   m_ObjectHideFlags: 0
@@ -820,10 +820,13 @@ MonoBehaviour:
   impactForce: 0
   fireRate: 1
   range: 10
+  maxAmmo: 10
+  reloadTime: 2.5
   fpsCam: {fileID: 852413539}
   muzzelFlash: {fileID: 1875540271}
   bloodFX: {fileID: 1013274939826982, guid: ffbf169ab9dcfdc45ae14010bc82a6b2, type: 2}
   holeFX: {fileID: 179232, guid: b2ac1383a96f94a50b7ed458be173bbd, type: 2}
+  animator: {fileID: 0}
 --- !u!1 &370922417
 GameObject:
   m_ObjectHideFlags: 0
@@ -1185,13 +1188,14 @@ GameObject:
   m_Component:
   - component: {fileID: 468671649}
   - component: {fileID: 468671650}
+  - component: {fileID: 468671651}
   m_Layer: 0
   m_Name: Pistol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &468671649
 Transform:
   m_ObjectHideFlags: 0
@@ -1229,10 +1233,31 @@ MonoBehaviour:
   impactForce: 0
   fireRate: 4
   range: 40
+  maxAmmo: 10
+  reloadTime: 2.5
   fpsCam: {fileID: 852413539}
   muzzelFlash: {fileID: 953859809}
   bloodFX: {fileID: 1013274939826982, guid: ffbf169ab9dcfdc45ae14010bc82a6b2, type: 2}
   holeFX: {fileID: 179232, guid: b2ac1383a96f94a50b7ed458be173bbd, type: 2}
+  animator: {fileID: 0}
+--- !u!95 &468671651
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 468671648}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5c789dc1ed8439b429a174250ec99d76, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &487114320
 GameObject:
   m_ObjectHideFlags: 0
@@ -13849,10 +13874,13 @@ MonoBehaviour:
   impactForce: 30
   fireRate: 12
   range: 100
+  maxAmmo: 10
+  reloadTime: 2.5
   fpsCam: {fileID: 852413539}
   muzzelFlash: {fileID: 487114323}
   bloodFX: {fileID: 1013274939826982, guid: ffbf169ab9dcfdc45ae14010bc82a6b2, type: 2}
   holeFX: {fileID: 179232, guid: b2ac1383a96f94a50b7ed458be173bbd, type: 2}
+  animator: {fileID: 0}
 --- !u!1 &1875540268
 GameObject:
   m_ObjectHideFlags: 0
